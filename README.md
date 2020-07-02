@@ -13,3 +13,8 @@ com privilégios para leitura e escrita no mesmo conforme instruções abaixo:
 use dbName
 
 db.createUser({user:"name",pwd:"senha123",roles:[{role:"readWrite",db:"dbName"}]})
+
+
+Para criar collections use nome apenas com letras e não usar hífen "-", use underline "_"
+
+Para apagar uma collection user o comando db.collection.drop()
