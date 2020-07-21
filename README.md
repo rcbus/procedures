@@ -10,7 +10,25 @@ Depois renomeie o arquivo next.config.example.js para next.config.js e insira su
 
 Depois renomeie o arquivo aws.config.example.json para aws.config.json e insira suas informações caso for usar recursos da AWS.
 
-Depois npm run dev. Deve funcionar tudo certo, desde que você atenda ao requisitos de infraestrutura descritos no README.md do projeto que está usando.
+Verificar se a pasta components tem os arquivos de components. Caso não tenha, executar os seguintes comandos:
+
+    - cd components
+    
+    - git init
+    
+    - git remote add origin https://github.com/rcbus/components.git
+
+Verificar se a pasta libs tem os arquivos de libs. Caso não tenha, executar os seguintes comandos:
+
+    - cd libs
+    
+    - git init
+    
+    - git remote add origin https://github.com/rcbus/libs.git
+
+Verificar se existe o arquivo .gitignore , caso não exista crie um arquivo com esse nome na raiz do seu projeto e copie e cole o exemplo de .gitignore acima neste repositório.
+
+Depois rodar o npm run dev. Deve funcionar tudo certo, desde que você atenda ao requisitos de infraestrutura descritos no README.md do projeto que está usando.
 
 # Mongo DB
 Para usar o mongodb é necessário criar previamente o banco de dados e o usuario
