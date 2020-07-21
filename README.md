@@ -18,6 +18,8 @@ Verificar se a pasta components tem os arquivos de components. Caso não tenha, 
     
     - git remote add origin https://github.com/rcbus/components.git
 
+    - git pull origin master
+    
 Verificar se a pasta libs tem os arquivos de libs. Caso não tenha, executar os seguintes comandos:
 
     - cd libs
@@ -25,6 +27,8 @@ Verificar se a pasta libs tem os arquivos de libs. Caso não tenha, executar os 
     - git init
     
     - git remote add origin https://github.com/rcbus/libs.git
+    
+    - git pull origin master
 
 Verificar se existe o arquivo .gitignore , caso não exista crie um arquivo com esse nome na raiz do seu projeto e copie e cole o exemplo de .gitignore acima neste repositório.
 
