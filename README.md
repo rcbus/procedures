@@ -1,6 +1,21 @@
 # Procedures
 Procedimentos de ambiente de programação em geral
 
+# Instalação de Novo Servidor
+
+É importante aumentar o limite de cache do processador para não bugar o node e npm.
+
+```
+cat /proc/sys/fs/inotify/max_user_watches
+```
+
+Retorno de ser: 8192
+
+```
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
+
 # Instalação de Projetos Node do Padrão RCBUS
 Ao baixar um repositório de um projeto node do RCBUS deve-se apagar o arquivo package-lock.json, apagar o diretório node_modules e apagar o diretório .next
 
