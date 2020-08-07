@@ -1,6 +1,38 @@
 # Procedures
 Procedimentos de ambiente de programação em geral
 
+# Forever
+
+Serve para deixar um servidor node rodando para sempre. Para isso instale o forever.
+
+```
+npm install forever
+```
+
+Depois execute o comando abaixo para rodar o servidor.
+
+```
+forever start -c "npm start" /path/to/app/dir/
+```
+
+Ou estando dentro da pasta do projeto.
+
+```
+forever start -c "npm start" ./
+```
+
+Para listar os servidores rodando com forever use o comando abaixo.
+
+```
+forever list
+```
+
+Para parar o servidor execute o comando abaixo colocando o número do serviço no final.
+
+```
+forever stop 0
+```
+
 # Instalação de Novo Servidor
 
 É importante aumentar o limite de cache do processador para não bugar o node e npm.
