@@ -93,11 +93,17 @@ db.createUser({user:"name",pwd:"senha123",roles:[{role:"readWrite",db:"dbName"}]
 Para criar collections use nome apenas com letras e não usar hífen "-", use underline "_"
 
 Para apagar uma collection user o comando db.collection.drop()
-
+<br>
 Para fazer um dump (backup) de um banco mongodb execute o código abaixo.
 
 ```
 mongodump --db=dbName --out=/home/user/www/app/backup/
+```
+
+Para restaurar um dump (backup) de um banco mongodb execute o código abaixo.
+
+```
+mongorestore /home/user/www/app/backup/
 ```
 
 # RSYNC para servidor AWS com chave pública
