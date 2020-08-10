@@ -99,3 +99,9 @@ Para fazer um dump (backup) de um banco mongodb execute o código abaixo.
 ```
 mongodump --db=dbName --out=/home/user/www/app/backup/
 ```
+
+# RSYNC para servidor AWS com chave pública
+
+```
+sudo rsync -avz -e "ssh -i /home/user/documents/key.pem" /home/user/www/app/backup/ <user>@<domain/ip>:/home/user/www/app/backup/
+```
