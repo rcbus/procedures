@@ -6,7 +6,7 @@ Procedimentos de ambiente de programação em geral
 Serve para deixar um servidor node rodando para sempre. Para isso instale o forever.
 
 ```
-npm install forever
+npm install forever -g
 ```
 
 Depois execute o comando abaixo para rodar o servidor.
@@ -45,6 +45,28 @@ Retorno de ser: 8192
 
 ```
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
+É importante lembrar que para rodar um app na porta 80 diretamente, é preciso fazer isso com o usuario root, e talvez seja necessário instalar o nvm, node, npm e forever novamente como root, para isso execute os comandos abaixo estando na pasta raiz do app.
+
+```
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```
+
+```
+nvm install v12.18.3
+```
+
+```
+npm run build
+```
+
+```
+npm install forever -g
+```
+
+```
+forever start -c "npm start" ./
 ```
 
 
