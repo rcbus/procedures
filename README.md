@@ -1,6 +1,24 @@
 # Procedures
 Procedimentos de ambiente de programação em geral
 
+# Atualizar Servidor Node.js com Next
+
+1 - Atualizar os components e libs usando o git-manage
+
+2 - Atualizar o app usando o git-manage
+
+3 - Reiniciar o servidor
+
+```
+sudo reboot
+```
+
+4 - Quando o servidor subir novamente, entrar como root e iniciar o servidor.
+
+```
+forever start -c "npm start" ./
+```
+
 # Forever
 
 Serve para deixar um servidor node rodando para sempre. Para isso instale o forever.
