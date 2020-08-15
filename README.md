@@ -13,7 +13,21 @@ Procedimentos de ambiente de programação em geral
 sudo reboot
 ```
 
-4 - Quando o servidor subir novamente, entrar como root e iniciar o servidor.
+4 - Quando o servidor subir novamente apague a pasta .next e execute o build.
+
+```
+rm -rf .next
+```
+
+```
+npm run build
+```
+
+5 - Após o build entre como root e inicie o servidor.
+
+```
+sudo su
+```
 
 ```
 forever start -c "npm start" ./
