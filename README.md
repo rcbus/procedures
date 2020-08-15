@@ -16,7 +16,7 @@ sudo reboot
 4 - Quando o servidor subir novamente apague a pasta .next e execute o build.
 
 ```
-rm -rf .next
+sudo rm -rf .next
 ```
 
 ```
