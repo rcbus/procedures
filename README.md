@@ -7,13 +7,13 @@ Procedimentos de ambiente de programação em geral
 
 2 - Atualizar o app usando o git-manage
 
-3 - Reiniciar o servidor
+3 - Parar o servidor (verifique o ID do processo, geralmente é o zero)
 
 ```
-sudo reboot
+pm2 stop 0
 ```
 
-4 - Quando o servidor subir novamente apague a pasta .next e execute o build.
+4 - Apague a pasta .next e execute o build.
 
 ```
 sudo rm -rf .next
@@ -30,39 +30,39 @@ sudo su
 ```
 
 ```
-forever start -c "npm start" ./
+pm2 start "npm start"
 ```
 
-# Forever
+# Forever / PM2
 
-Serve para deixar um servidor node rodando para sempre. Para isso instale o forever.
-
-```
-npm install forever -g
-```
-
-Depois execute o comando abaixo para rodar o servidor.
+Serve para deixar um servidor node rodando para sempre. Para isso instale o forever. Passei a usar o PM2 pois funciona melhor do que o forever.
 
 ```
-forever start -c "npm start" /path/to/app/dir/
+npm install pm2 -g
 ```
 
-Ou estando dentro da pasta do projeto.
+Depois execute o comando abaixo para rodar o servidor dentro da pasta do app.
 
 ```
-forever start -c "npm start" ./
+pm2 start "npm start"
 ```
 
-Para listar os servidores rodando com forever use o comando abaixo.
+Para listar os servidores rodando com pm2 use o comando abaixo.
 
 ```
-forever list
+pm2 list
 ```
 
 Para parar o servidor execute o comando abaixo colocando o número do serviço no final.
 
 ```
-forever stop 0
+pm2 stop 0
+```
+
+Para que o servidor seja executado logo após o servidor ser reinicializado, use o comando abaixo.
+
+```
+pm2 startup
 ```
 
 # GIT
@@ -240,11 +240,15 @@ npm run build
 ```
 
 ```
-npm install forever -g
+npm install pm2 -g
 ```
 
 ```
-forever start -c "npm start" ./
+pm2 start "npm start"
+```
+
+```
+pm2 startup
 ```
 
 
