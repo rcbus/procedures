@@ -35,7 +35,11 @@ pm2 start "npm start"
 
 # Forever / PM2
 
-Serve para deixar um servidor node rodando para sempre. Para isso instale o forever. Passei a usar o PM2 pois funciona melhor do que o forever.
+Serve para deixar um servidor node rodando para sempre. Para isso instale o forever. Passei a usar o PM2 pois funciona melhor do que o forever. É bom instalar o mesmo como usuário root para que possa ter acesso a porta 80, bloqueada para usuários comuns.
+
+```
+sudo su
+```
 
 ```
 npm install pm2 -g
@@ -235,8 +239,14 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 nvm install v12.18.3
 ```
 
+Acesse a pasta do app e execute os comandos abaixo
+
 ```
 npm run build
+```
+
+```
+sudo su
 ```
 
 ```
