@@ -393,7 +393,7 @@ upload_max_filesize = 256M
 default_socket_timeout = 360
 ```
 
-Caso o servidor trabalhe com SQLServer inclua na sessão "Dinamic Extensions" a linha abaixo e baixe o módulo de comunicação aqui mesmo nesse reposítório, na pasta modulos
+Caso o servidor trabalhe com SQLServer inclua na sessão "Dinamic Extensions" a linha abaixo e baixe o módulo de comunicação aqui mesmo nesse reposítório
 
 ```
 extension=/usr/lib/php/20170718/php_sqlsrv_72_nts.so
