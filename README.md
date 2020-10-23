@@ -361,6 +361,50 @@ echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/test.php | sudo service apac
 
 Para testar o PHP no navegador, digite na página de endereços: localhost/test.php
 
+Configure o PHP para uma melhor performance, acesse o arquivo /etc/php/7.2/apache2/php.ini encontre as linhas
+
+```
+max_execution_time = 30
+
+max_input_time = 60
+
+memory_limit = 128M
+
+post_max_size = 8M
+
+upload_max_filesize = 2M
+
+default_socket_timeout = 60
+```
+
+Altere conforme abaixo
+
+```
+max_execution_time = 360
+
+max_input_time = 360
+
+memory_limit = 4096M
+
+post_max_size = 256M
+
+upload_max_filesize = 256M
+
+default_socket_timeout = 360
+```
+
+Caso o servidor trabalhe com SQLServer inclua na sessão "Dinamic Extensions" a linha abaixo e baixe o módulo de comunicação aqui mesmo nesse reposítório, na pasta modulos
+
+```
+extension=/usr/lib/php/20170718/php_sqlsrv_72_nts.so
+```
+
+Salve o arquivo e reinicie o servidor
+
+```
+sudo service apache2 restart
+```
+
 Instale o MySQL
 
 ```
