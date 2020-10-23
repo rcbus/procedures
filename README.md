@@ -311,6 +311,112 @@ Verificar se existe o arquivo .gitignore , caso não exista crie um arquivo com 
 
 Depois rodar o npm run dev. Deve funcionar tudo certo, desde que você atenda ao requisitos de infraestrutura descritos no README.md do projeto que está usando.
 
+# Instalar LAMP (Linux Apache MySQL PHP)
+
+Execute a atualização do linux
+
+```
+sudo apt update
+
+sudo apt upgrade
+
+sudo apt update
+```
+
+Instale o Apache 2
+
+```
+sudo apt install -y apache2
+```
+
+Para testar se o Apache está funcionando corretamente, devemos digitar "localhost" na barra de endereços do navegador de sua preferência.
+
+Se quiser mudar o diretório root do apache, acesso o arquivo /etc/apache2/apache2.conf com privilégios de administrador ou root. E altere a linha "<Directory /var/www>" pela linha abaixo
+
+```
+<Directory /caminho_da_pasta_da_sua_preferencia>
+```
+
+Depois acesso o arquivo /etc/apache2/sites-available/000-default.conf com privilégios de administrador ou root. E altere a linha "DocumentRoot /var/www/html" pela linha abaixo e reinicie o servidor
+
+```
+DocumentRoot /caminho_da_pasta_da_sua_preferencia
+```
+
+```
+sudo service apache2 restart
+```
+
+Instale o PHP
+
+```
+sudo apt install -y php php-cli php-common php-gd php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php
+```
+
+Para testar use o procedimento abaixo
+
+```
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/test.php | sudo service apache2 restart
+```
+
+Para testar o PHP no navegador, digite na página de endereços: localhost/test.php
+
+Instale o MySQL
+
+```
+sudo apt install -y mysql-server mysql-client php-mysql
+```
+
+Configure o MySQL seguindo o procedimento abaixo
+
+```
+sudo mysql
+```
+
+Ou com a senha se caso foi solicitado a criação de uma senha no momento da instalação
+
+```
+sudo mysql -p
+```
+
+Depois que estiver logado no mysql, um ponteiro deve aparecer assim "mysql> ", para digitar os comandos do mysql. Execute o procedimento abaixo para criar o usuário e conceder privilégios para o mesmo
+
+```
+CREATE USER 'seu_usuario'@'localhost' IDENTIFIED BY 'sua_senha';
+
+GRANT ALL PRIVILEGES ON *.* TO 'seu_usuario'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+exit
+```
+
+Teste o acesso do usuario criado com o comando abaixo, insira a senha
+
+```
+sudo mysql -u seu_usuario -p
+```
+
+Instale o PHPMyAdmin. Caso necessite, utilize a mesma senha criada para o MySQL
+
+```
+sudo apt install -y phpmyadmin
+```
+
+Acesse o arquivo /etc/apache2/sites-available/000-default.conf com privilégios de administrador ou root. E insira no início do arquivo a linha abaixo
+
+```
+Alias /phpmyadmin /usr/share/phpmyadmin/
+```
+
+Reinicie o servidor
+
+```
+sudo service apache2 restart
+```
+
+Para testá-lo no navegador, digite na barra de endereços: localhost/phpmyadmin
+
 # Mongo DB
 Para usar o mongodb é necessário criar previamente o banco de dados e o usuario
 com privilégios para leitura e escrita no mesmo conforme instruções abaixo:
