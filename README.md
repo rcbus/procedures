@@ -397,6 +397,14 @@ Caso o servidor trabalhe com SQLServer inclua na sessão "Dinamic Extensions" a 
 
 ```
 extension=/usr/lib/php/20170718/php_sqlsrv_72_nts.so
+extension=/usr/lib/php/20170718/php_pdo_sqlsrv_72_nts.so
+```
+
+Ou
+
+```
+extension=php_sqlsrv_72_nts.so
+extension=php_pdo_sqlsrv_72_nts.so
 ```
 
 Salve o arquivo e reinicie o servidor
