@@ -31,3 +31,6 @@ sendmail_path = /usr/sbin/ssmtp -t
 Reinicie o apache
 
 OBS: Na sua conta google precisa habilitar a opção "Permitir aplicativos menos seguros"
+
+Não esqueça de habilitar a porta
+iptables -A INPUT -p tcp --dport 587 -j ACCEPT
