@@ -45,3 +45,15 @@ git remote set-url origin git@github.com:user/repository.git
 ```
 
 Pronto, agora você já pode interagir com o Github normalmente. Se você colocou uma senha na sua chave, essa senha será solicitada todas as vezes. É altamente recomendado colocar senha na chave, assim você tem uma camada a mais de proteção.
+
+Caso precise clonar um projeto novo, com a nova autenticação não da pra fazer com git clone, você precisa criar a pasta para o projeto e executar
+```
+git init
+
+git remote add origin https://github.com/user/repository.git
+
+git remote set-url origin git@github.com:user/repository.git
+
+git pull origin master/main
+```
+
