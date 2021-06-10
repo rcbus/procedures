@@ -57,3 +57,10 @@ git remote set-url origin git@github.com:user/repository.git
 git pull origin master/main
 ```
 
+OBS.: Se houver algum problema para realizar o "git pull origin master" use o procedimento abaixo.
+
+```
+git fetch --all
+git reset --hard origin/master
+git pull origin master
+```
