@@ -22,7 +22,7 @@ IMPORTANTE! Faça esse procedimento em um computador windows, nunca testei ele n
 cd C:\Users\Jose\Documents
 ```
 
-5. Renomeie o arquivo para transformá-lo em um arquivo ".zip"
+5. Renomeie o arquivo para transformá-lo em um arquivo ".zip" (OBS: Se o arquivo estiver em XLS salve-o como XLSX primeiro)
 
 ```
 rename A.xlsx A.zip
