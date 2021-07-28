@@ -407,6 +407,9 @@ extension=php_sqlsrv_72_nts.so
 extension=php_pdo_sqlsrv_72_nts.so
 ```
 
+Siga as instruções da sessão UBUNTU em https://docs.microsoft.com/pt-br/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15 para instalar o ODBC
+
+
 Salve o arquivo e reinicie o servidor
 
 ```
