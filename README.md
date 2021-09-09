@@ -458,6 +458,12 @@ Teste o acesso do usuario criado com o comando abaixo, insira a senha
 sudo mysql -u seu_usuario -p
 ```
 
+Instale o pacote mysqli
+
+```
+sudo apt-get install php7.2-mysqlnd
+```
+
 Instale o PHPMyAdmin. Caso necessite, utilize a mesma senha criada para o MySQL
 
 ```
