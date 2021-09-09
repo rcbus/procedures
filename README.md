@@ -372,6 +372,8 @@ max_input_time = 60
 
 memory_limit = 128M
 
+display_errors = Off
+
 post_max_size = 8M
 
 upload_max_filesize = 2M
@@ -387,6 +389,8 @@ max_execution_time = 360
 max_input_time = 360
 
 memory_limit = 4096M
+
+display_errors = On
 
 post_max_size = 256M
 
