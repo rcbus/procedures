@@ -64,3 +64,9 @@ git fetch --all
 git reset --hard origin/master
 git pull origin master
 ```
+
+OBS.: Para servidor novo, é importante instalar o SSH, caso não tenha
+
+```
+sudo apt-get install openssh-server
+```
