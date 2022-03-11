@@ -484,6 +484,18 @@ sudo service apache2 restart
 
 Para testá-lo no navegador, digite na barra de endereços: localhost/phpmyadmin
 
+É bom instalar o SSH Server para poder acessar essa máquina remotamente
+
+```
+sudo apt-get install openssh-server
+```
+
+Talvez seja necessário liberar acesso à porta SSH que em geral por padrão é a porta 22
+
+```
+sudo iptables -I INPUT -p tcp --dport 22 -j ACCEPT
+```
+
 # Mongo DB
 Para usar o mongodb é necessário criar previamente o banco de dados e o usuario
 com privilégios para leitura e escrita no mesmo conforme instruções abaixo:
