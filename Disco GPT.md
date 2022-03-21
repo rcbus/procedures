@@ -7,6 +7,11 @@ Entre no disk part
 diskpart
 ```
 
+Ver lista de discos
+```
+list disk
+```
+
 Selecione o disco
 ```
 select disk #
