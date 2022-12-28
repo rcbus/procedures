@@ -449,6 +449,8 @@ GRANT ALL PRIVILEGES ON *.* TO 'seu_usuario'@'localhost' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 
+ALTER USER 'seu_usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
+
 exit
 ```
 
