@@ -347,6 +347,44 @@ DocumentRoot /caminho_da_pasta_da_sua_preferencia
 sudo service apache2 restart
 ```
 
+Caso após reiniciar o apache dê erro 403 Forbidden pode ser que a pasta que você escolheu tem alguma pasta no caminho sem permissão de execução de arquivos, como por exemplo abaixo, rode o comando abaixo:
+
+```
+namei -m /caminho_da_pasta_da_sua_preferencia/www
+```
+
+O resultado desse comando provavelmente será esse:
+
+```
+f: /caminho_da_pasta_da_sua_preferencia/www
+ drwxr-xr-x /
+ drwxr-x--- caminho_da_pasta_da_sua_preferencia
+ drwxrwxrwx www
+```
+
+As linhas de cada pasta do caminho tem que ter 3 "x", o "x" significa permissão de execução, repare que uma das linhas está faltando um "x". Para corrigir isso execute o comando abaixo para cada uma das pastas nessas condições:
+
+```
+sudo chmod o+x /caminho_da_pasta_da_sua_preferencia
+```
+
+Depois rode o comando abaixo novamente:
+
+```
+namei -m /caminho_da_pasta_da_sua_preferencia/www
+```
+
+E o resultado desse comando agora será esse:
+
+```
+f: /caminho_da_pasta_da_sua_preferencia/www
+ drwxr-xr-x /
+ drwxr-xr-x caminho_da_pasta_da_sua_preferencia
+ drwxrwxrwx www
+```
+
+Pronto isso deve ser o suficiente para acabar com o erro 403 Forbidden
+
 Instale o PHP
 
 ```
