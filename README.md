@@ -422,11 +422,11 @@ default_socket_timeout = 60
 Altere conforme abaixo
 
 ```
-max_execution_time = 360
+max_execution_time = 600
 
-max_input_time = 360
+max_input_time = 600
 
-memory_limit = 4096M
+memory_limit = 4096M / 16384M
 
 display_errors = On
 
@@ -434,7 +434,7 @@ post_max_size = 256M
 
 upload_max_filesize = 256M
 
-default_socket_timeout = 360
+default_socket_timeout = 600
 ```
 
 Caso o servidor trabalhe com SQLServer inclua na sessão "Dinamic Extensions" a linha abaixo e baixe o módulo de comunicação aqui mesmo nesse reposítório
