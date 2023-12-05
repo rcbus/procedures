@@ -485,10 +485,28 @@ CREATE USER 'seu_usuario'@'localhost' IDENTIFIED BY 'sua_senha';
 
 GRANT ALL PRIVILEGES ON *.* TO 'seu_usuario'@'localhost' WITH GRANT OPTION;
 
-FLUSH PRIVILEGES;
-
 ALTER USER 'seu_usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
 
+FLUSH PRIVILEGES;
+
+exit
+```
+
+Para facilitar o copia e cola, use linha por linha abaixo
+
+```
+CREATE USER ''@'' IDENTIFIED BY '';
+```
+```
+GRANT ALL PRIVILEGES ON *.* TO ''@'' WITH GRANT OPTION;
+```
+```
+ALTER USER ''@'' IDENTIFIED WITH mysql_native_password BY '';
+```
+```
+FLUSH PRIVILEGES;
+```
+```
 exit
 ```
 
