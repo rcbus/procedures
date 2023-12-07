@@ -385,6 +385,42 @@ f: /caminho_da_pasta_da_sua_preferencia/www
 
 Pronto isso deve ser o suficiente para acabar com o erro 403 Forbidden
 
+Configure o prefork conforme abaixo para um melhor desempenho do apache:
+
+```
+cd /etc/apache2/mods-enabled
+```
+```
+sudo cp mpm_prefork.conf mpm_prefork.conf.cs
+```
+```
+sudo vim mpm_prefork.conf
+```
+
+Deve estar assim:
+
+```
+<IfModule mpm_prefork_module>
+        StartServers                     5
+        MinSpareServers           5
+        MaxSpareServers          10
+        MaxRequestWorkers         150
+        MaxConnectionsPerChild   0
+</IfModule>
+```
+
+Configure assim:
+
+```
+<IfModule mpm_prefork_module>
+        StartServers                     50
+        MinSpareServers           50
+        MaxSpareServers          100
+        MaxRequestWorkers         1000
+        MaxConnectionsPerChild   2000
+</IfModule>
+```
+
 Instale o PHP
 
 ```
@@ -514,6 +550,64 @@ Teste o acesso do usuario criado com o comando abaixo, insira a senha
 
 ```
 sudo mysql -u seu_usuario -p
+```
+
+Configure a memoria ram que o mysql irá usar usando o código abaixo:
+
+4GB / 8GB
+```
+SET GLOBAL innodb_buffer_pool_size=4294967296;
+```
+
+8GB / 16GB
+```
+SET GLOBAL innodb_buffer_pool_size=8589934592;
+```
+
+16GB / 32GB
+```
+SET GLOBAL innodb_buffer_pool_size=17179869184;
+```
+
+22GB / 32GB - Limite de 70% da RAM
+```
+SET GLOBAL innodb_buffer_pool_size=23622320128;
+```
+
+Confira se está certo:
+
+```
+SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
+```
+
+Ajuste o sql_mode tirando o ONLY_FULL_GROUP_BY:
+
+```
+cd /etc/mysql/mysql.conf.d
+```
+```
+sudo cp mysqld.cnf mysqld.cnf.cs
+```
+```
+sudo vim mysqld.cnf
+```
+
+Acrescente no final do aquivo:
+
+```
+sql_mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+```
+```
+sudo service mysql restart
+```
+
+Caso dê algum erro mude para:
+
+```
+sql_mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+```
+```
+sudo service mysql restart
 ```
 
 Instale o pacote mysqli
