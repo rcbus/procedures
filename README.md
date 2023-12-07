@@ -595,6 +595,18 @@ sudo cp mysqld.cnf mysqld.cnf.cs
 sudo vim mysqld.cnf
 ```
 
+Altere:
+
+```
+bind-address            = 127.0.0.1
+```
+
+Para:
+
+```
+bind-address            = 0.0.0.0
+```
+
 Acrescente no final do aquivo:
 
 ```
