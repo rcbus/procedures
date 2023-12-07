@@ -604,7 +604,35 @@ bind-address            = 127.0.0.1
 Para:
 
 ```
-bind-address            = 0.0.0.0
+bind-address=0.0.0.0
+```
+
+Se tiver uma linha setada com innodb_buffer_pool_size como o exemplo abaixo:
+
+```
+innodb_buffer_pool_size=134217728
+```
+
+Para um desses de acordo com a memória do servidor:
+
+4GB / 8GB
+```
+innodb_buffer_pool_size=4294967296;
+```
+
+8GB / 16GB
+```
+innodb_buffer_pool_size=8589934592;
+```
+
+16GB / 32GB
+```
+innodb_buffer_pool_size=17179869184;
+```
+
+22GB / 32GB - Limite de 70% da RAM
+```
+innodb_buffer_pool_size=23622320128;
 ```
 
 Acrescente no final do aquivo:
