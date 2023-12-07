@@ -420,6 +420,9 @@ Configure assim:
         MaxConnectionsPerChild   2000
 </IfModule>
 ```
+```
+sudo service apache2 restart
+```
 
 Instale o PHP
 
