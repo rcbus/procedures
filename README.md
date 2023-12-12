@@ -648,7 +648,7 @@ SHOW VARIABLES LIKE 'binlog_expire_logs_seconds';
 SHOW VARIABLES LIKE 'sql_mode';
 ```
 
-É normal o mysql ocupar bastante espaço em disco principalmente em querys de delete com muitas exclusões, caso necessário você pode limpar o cache do binlog usando o comando abaixo substituindo pela data atual
+É normal o mysql ocupar bastante espaço em disco principalmente em querys de delete com muitas exclusões, caso necessário você pode limpar o cache do binlog entrando no mysql via terminal e usando o comando abaixo substituindo pela data atual:
 
 ```
 PURGE BINARY LOGS BEFORE '2023-12-12 00:00:00';
