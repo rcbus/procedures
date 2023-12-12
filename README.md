@@ -555,35 +555,7 @@ Teste o acesso do usuario criado com o comando abaixo, insira a senha
 sudo mysql -u seu_usuario -p
 ```
 
-Configure a memoria ram que o mysql irá usar usando o código abaixo:
-
-4GB / 8GB
-```
-SET GLOBAL innodb_buffer_pool_size=4294967296;
-```
-
-8GB / 16GB
-```
-SET GLOBAL innodb_buffer_pool_size=8589934592;
-```
-
-16GB / 32GB
-```
-SET GLOBAL innodb_buffer_pool_size=17179869184;
-```
-
-22GB / 32GB - Limite de 70% da RAM
-```
-SET GLOBAL innodb_buffer_pool_size=23622320128;
-```
-
-Confira se está certo:
-
-```
-SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
-```
-
-Ajuste o sql_mode tirando o ONLY_FULL_GROUP_BY:
+Ajustes de configuração:
 
 ```
 cd /etc/mysql/mysql.conf.d
@@ -595,62 +567,85 @@ sudo cp mysqld.cnf mysqld.cnf.cs
 sudo vim mysqld.cnf
 ```
 
-Altere:
+Altere ou acrescente os parâmetros conforme abaixo:
 
-```
-bind-address            = 127.0.0.1
-```
-
-Para:
+Para que o mysql seja acessível de qualquer IP além do localhost
 
 ```
 bind-address=0.0.0.0
 ```
 
-Se tiver uma linha setada com innodb_buffer_pool_size como o exemplo abaixo:
+Limitação do uso da memória RAM, por padrão começa em 128M, ajuste aos poucos, conforme abaixo:
+
+1 GB
 
 ```
-innodb_buffer_pool_size=134217728
+innodb_buffer_pool_size=1024M
 ```
 
-Para um desses de acordo com a memória do servidor:
-
-4GB / 8GB
-```
-innodb_buffer_pool_size=4294967296;
-```
-
-8GB / 16GB
-```
-innodb_buffer_pool_size=8589934592;
-```
-
-16GB / 32GB
-```
-innodb_buffer_pool_size=17179869184;
-```
-
-22GB / 32GB - Limite de 70% da RAM
-```
-innodb_buffer_pool_size=23622320128;
-```
-
-Acrescente no final do aquivo:
+2GB
 
 ```
-sql_mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
-```
-```
-sudo service mysql restart
+innodb_buffer_pool_size=2048M
 ```
 
-Caso dê algum erro mude para:
+4GB
+
+```
+innodb_buffer_pool_size=4096M;
+```
+
+8GB
+
+```
+innodb_buffer_pool_size=8192M;
+```
+
+16GB
+
+```
+innodb_buffer_pool_size=16384M;
+```
+
+Para otimizar o uso de espaço em disco do cache
+
+```
+innodb_file_per_table=1
+```
+
+Para não guardar arquivos de log por muito tempo, por padrão esse parâmetro vem com 30 dias (2.592.000 segundos)
+
+```
+binlog_expire_logs_seconds=86400
+```
+
+Defina o SQL MODE para evitar problema de agrupamento de consultas
 
 ```
 sql_mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
 ```
+Reinicie o servidor mysql
+
 ```
 sudo service mysql restart
+```
+
+Confira se está certo:
+
+```
+SHOW VARIABLES LIKE 'bind-address';
+```
+```
+SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
+```
+```
+SHOW VARIABLES LIKE 'innodb_file_per_table';
+```
+```
+SHOW VARIABLES LIKE 'binlog_expire_logs_seconds';
+```
+```
+SHOW VARIABLES LIKE 'sql_mode';
 ```
 
 Instale o pacote mysqli
