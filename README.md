@@ -580,31 +580,31 @@ Limitação do uso da memória RAM, por padrão começa em 128M, ajuste aos pouc
 1 GB
 
 ```
-innodb_buffer_pool_size=1024M
+innodb_buffer_pool_size=1073741824
 ```
 
 2GB
 
 ```
-innodb_buffer_pool_size=2048M
+innodb_buffer_pool_size=2147483648
 ```
 
 4GB
 
 ```
-innodb_buffer_pool_size=4096M;
+innodb_buffer_pool_size=4294967296
 ```
 
 8GB
 
 ```
-innodb_buffer_pool_size=8192M;
+innodb_buffer_pool_size=8589934592
 ```
 
 16GB
 
 ```
-innodb_buffer_pool_size=16384M;
+innodb_buffer_pool_size=17179869184
 ```
 
 Para otimizar o uso de espaço em disco do cache
@@ -633,7 +633,7 @@ sudo service mysql restart
 Confira se está certo:
 
 ```
-SHOW VARIABLES LIKE 'bind-address';
+sudo mysql -u seu_usuario -p
 ```
 ```
 SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
@@ -646,6 +646,12 @@ SHOW VARIABLES LIKE 'binlog_expire_logs_seconds';
 ```
 ```
 SHOW VARIABLES LIKE 'sql_mode';
+```
+
+É normal o mysql ocupar bastante espaço em disco principalmente em querys de delete com muitas exclusões, caso necessário você pode limpar o cache do binlog usando o comando abaixo substituindo pela data atual
+
+```
+PURGE BINARY LOGS BEFORE '2023-12-12 00:00:00';
 ```
 
 Instale o pacote mysqli
