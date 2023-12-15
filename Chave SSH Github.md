@@ -2,7 +2,7 @@
 
 1 - Comando para gerar a chave no computador de origem da conexão
 ```
-ssh-keygen
+ssh-keygen -t rsa -b 4096
 ```
 
 2 - Deve aparecer isso, apenas aperte enter
@@ -77,4 +77,10 @@ OBS.: Para servidor novo, é importante instalar o SSH, caso não tenha
 
 ```
 sudo apt-get install openssh-server
+```
+
+Para configurar acesso direto com chave sem senha, precisa criar a chave no procedimento lá em cima sem senha e depois rodar o comando abaixo para copiar a chave para o servidor remoto
+
+```
+ssh-copy-id usuario_remote@endereço_IP_remoto
 ```
