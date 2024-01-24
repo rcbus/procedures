@@ -91,7 +91,7 @@ grep nomeusuario /etc/passwd
 
 Adicionar usuario ao samba
 ```
-smbpasswd -a nomeusuario
+sudo smbpasswd -a nomeusuario
 ```
 
 espaço no HD
