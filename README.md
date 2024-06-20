@@ -647,6 +647,12 @@ SHOW VARIABLES LIKE 'binlog_expire_logs_seconds';
 ```
 SHOW VARIABLES LIKE 'sql_mode';
 ```
+```
+SET GLOBAL event_scheduler = ON;
+```
+```
+SHOW VARIABLES LIKE 'event_scheduler';
+```
 
 É normal o mysql ocupar bastante espaço em disco principalmente em querys de delete com muitas exclusões, caso necessário você pode limpar o cache do binlog entrando no mysql via terminal e usando o comando abaixo substituindo pela data atual:
 
