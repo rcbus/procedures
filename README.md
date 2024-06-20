@@ -427,7 +427,7 @@ sudo service apache2 restart
 Instale o PHP
 
 ```
-sudo apt install -y php php-cli php-common php-gd php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php
+sudo apt install -y php php-cli php-common php-gd php-curl php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php
 ```
 
 Para testar use o procedimento abaixo
