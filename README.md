@@ -385,6 +385,22 @@ f: /caminho_da_pasta_da_sua_preferencia/www
 
 Pronto isso deve ser o suficiente para acabar com o erro 403 Forbidden
 
+Instale o PHP
+
+```
+sudo apt install -y php php-cli php-common php-gd php-curl php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php
+```
+
+Para testar use o procedimento abaixo
+
+```
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/test.php | sudo service apache2 restart
+```
+
+Para testar o PHP no navegador, digite na página de endereços: localhost/test.php
+
+Se precisar instalar uma versão específica acesse https://sempreupdate.com.br/instalar-versoes-diferentes-php-7-2-7-3-7-4-8-0-no-ubuntu/
+
 Configure o prefork conforme abaixo para um melhor desempenho do apache:
 
 ```
@@ -423,22 +439,6 @@ Configure assim:
 ```
 sudo service apache2 restart
 ```
-
-Instale o PHP
-
-```
-sudo apt install -y php php-cli php-common php-gd php-curl php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php
-```
-
-Para testar use o procedimento abaixo
-
-```
-echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/test.php | sudo service apache2 restart
-```
-
-Para testar o PHP no navegador, digite na página de endereços: localhost/test.php
-
-Se precisar instalar uma versão específica acesse https://sempreupdate.com.br/instalar-versoes-diferentes-php-7-2-7-3-7-4-8-0-no-ubuntu/
 
 Configure o PHP para uma melhor performance, acesse o arquivo /etc/php/7.2/apache2/php.ini encontre as linhas
 
