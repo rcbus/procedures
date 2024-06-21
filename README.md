@@ -492,6 +492,47 @@ extension=php_pdo_sqlsrv_72_nts.so
 
 Siga as instruções da sessão UBUNTU no ODBC 17 em https://docs.microsoft.com/pt-br/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15 para instalar o ODBC
 
+Se for no PHP 8.1 rode os seguintes comandos
+
+```
+sudo su
+```
+```
+add-apt-repository ppa:ondrej/php -y
+```
+```
+apt-get update
+```
+```
+apt-get install php8.1 php8.1-dev php8.1-xml -y --allow-unauthenticated
+```
+```
+sudo apt-get install unixodbc-dev
+```
+```
+apt-get install unixodbc-dev=2.3.7 unixodbc=2.3.7 odbcinst1debian2=2.3.7 odbcinst=2.3.7
+```
+```
+sudo pecl install sqlsrv
+```
+```
+sudo pecl install pdo_sqlsrv
+```
+```
+sudo su
+```
+```
+printf "; priority=20\nextension=sqlsrv.so\n" > /etc/php/8.1/mods-available/sqlsrv.ini
+```
+```
+printf "; priority=30\nextension=pdo_sqlsrv.so\n" > /etc/php/8.1/mods-available/pdo_sqlsrv.ini
+```
+```
+exit
+```
+```
+sudo phpenmod -v 8.1 sqlsrv pdo_sqlsrv
+```
 
 Salve o arquivo e reinicie o servidor
 
