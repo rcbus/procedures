@@ -60,6 +60,19 @@ git remote set-url origin git@github.com:user/repository.git
 ```
 git pull origin master/main
 ```
+Para facilitar o uso dos comandos
+```
+git init
+```
+```
+git remote add origin https://github.com/rcbus/.git
+```
+```
+git remote set-url origin git@github.com:rcbus/.git
+```
+```
+git pull origin master
+```
 
 OBS.: Se houver algum problema para realizar o "git pull origin master" use o procedimento abaixo.
 
