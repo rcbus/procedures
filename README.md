@@ -338,6 +338,12 @@ Configure o git
 ```
 git config --global init.defaultBranch master
 ```
+```
+git config --global user.email "you@example.com"
+```
+```
+git config --global user.name "Your Name"
+```
 
 Para criar comandos bash no linux, crios na pasta /usr/bin e após cria-los use o comando abaixo para torna-los executáveis
 
