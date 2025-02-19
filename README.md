@@ -322,6 +322,28 @@ sudo apt upgrade
 
 sudo apt update
 ```
+Instale o vim
+```
+sudo apt-get install vim
+```
+
+Instale o git
+
+```
+sudo apt-get install git
+```
+
+Configure o git
+
+```
+git config --global init.defaultBranch master
+```
+
+Para criar comandos bash no linux, crios na pasta /usr/bin e após cria-los use o comando abaixo para torna-los executáveis
+
+```
+sudo chmod x+ arquivo
+```
 
 Instale o Apache 2
 
