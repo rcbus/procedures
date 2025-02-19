@@ -342,7 +342,7 @@ git config --global init.defaultBranch master
 Para criar comandos bash no linux, crios na pasta /usr/bin e após cria-los use o comando abaixo para torna-los executáveis
 
 ```
-sudo chmod x+ arquivo
+sudo chmod +x arquivo
 ```
 
 Instale o Apache 2
