@@ -735,6 +735,15 @@ Instale o pacote mysqli
 sudo apt-get install php7.2-mysqlnd
 ```
 
+Mysqldump
+
+```
+mysqldump -u [nome_de_usuario] -p [nome_do_banco_de_dados] > /caminho/para/backup.sql
+```
+```
+mysql -u [nome_de_usuario] -p [nome_do_banco_de_dados]o < /caminho/para/backup.sql
+```
+
 Instale o PHPMyAdmin. Caso necessite, utilize a mesma senha criada para o MySQL
 
 ```
